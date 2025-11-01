@@ -1,0 +1,8 @@
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: galaxy-store-config
+  namespace: default
+data:
+  APP_NAME: "Galaxy Store"
+  APP_MODE: "production"
