@@ -23,7 +23,9 @@ spec:
           env:
             - name: NODE_ENV
               value: "production"
-
+          envFrom:
+            - configMapRef:
+              name: galaxy-store-config
 apiVersion: v1
 kind: Service
 metadata:
