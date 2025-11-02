@@ -17,7 +17,7 @@ spec:
     spec:
       containers:
         - name: galaxy-store
-          image: younis606/galaxy-store:latest   
+          image: younis606/galaxy-store:a5426fb08b2ab0f28988f8dfbc8af51be562d196
           ports:
             - containerPort: 3000
           env:
