@@ -1,1 +1,23 @@
-
+apiVersion: networking.k8s.io/v1
+kind: Ingress
+metadata:
+  name: galaxy-store-ingress
+  namespace: galaxy
+  annotations:
+    kubernetes.io/ingress.class: nginx
+    nginx.ingress.kubernetes.io/rewrite-target: /
+    nginx.ingress.kubernetes.io/ssl-redirect: "false"
+    nginx.ingress.kubernetes.io/force-ssl-redirect: "false"
+spec:
+  rules:
+    - host: galaxy.172.31.1.100.nip.io
+      http:
+        paths:
+          - path: /
+            pathType: Prefix
+            backend:
+              service:
+                name: galaxy-store-service
+                port:
+                  number:
+  
