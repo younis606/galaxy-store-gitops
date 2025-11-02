@@ -19,5 +19,5 @@ spec:
               service:
                 name: galaxy-store-service
                 port:
-                  number:
+                  number: 3000
   
