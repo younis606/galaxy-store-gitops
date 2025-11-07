@@ -1,3 +1,4 @@
+
 apiVersion: apps/v1
 kind: Deployment
 metadata:
@@ -17,7 +18,7 @@ spec:
     spec:
       containers:
         - name: galaxy-store
-          image: younis606/galaxy-store:latest   
+          image: younis606/galaxy-store:latest
           ports:
             - containerPort: 3000
           env:
@@ -25,12 +26,17 @@ spec:
               value: "production"
           envFrom:
             - configMapRef:
-              name: galaxy-store-config
+                name: galaxy-store-config
+---
 apiVersion: v1
 kind: Service
 metadata:
   name: galaxy-store-service
   namespace: default
+  annotations:
+    prometheus.io/scrape: "true"
+    prometheus.io/port: "3000"
+    prometheus.io/path: "/metrics"
 spec:
   type: NodePort
   selector:
